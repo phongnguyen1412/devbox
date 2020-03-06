@@ -1,0 +1,51 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 2
+provider: virtualbox
+networks:
+    - type: "public_network"
+      ip: "172.16.1.88"
+      netmask: "255.255.0.0"
+      #bridge: "Intel(R) Ethernet Connection (2) I219-V"
+
+authorize: .ssh/id_rsa.pub
+
+keys:
+    - .ssh/id_rsa
+
+folders:
+    - map: /Users/nguyenphong/Code
+      to: /home/vagrant/Code
+      type: "nfs"	
+      #mount_opts: ["vers=3.02","mfsymlinks"]
+    #- map: /Users/thevinh/temp/nginxlog
+    #  to: /var/log/nginx
+
+sites:
+    - map: mage-debug.dev
+      to: /home/vagrant/Code
+      type: magento-w-xdebug
+
+#databases:
+#    - homestead
+
+#variables:
+#   - key: APP_ENV
+#    value: local
+
+# blackfire:
+#     - id: foo
+#       token: bar
+#       client-id: foo
+#       client-token: bar
+
+ports:
+    - send: 9000
+      to: 80
+#     - send: 7777
+#       to: 777
+#       protocol: udp
+
+#networks:
+# - bridge: "en0: Ethernet"

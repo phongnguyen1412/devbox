@@ -1,0 +1,18 @@
+# should be added as /usr/lib/systemd/system/lshttpd.service
+[Unit]
+Description=LiteSpeed HTTP Server
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/lshttpd.pid
+ExecStart=/usr/local/lsws/bin/lswsctrl start 
+ExecReload=/usr/local/lsws/bin/lswsctrl restart 
+ExecStop=/usr/local/lsws/bin/lswsctrl delay-stop
+
+KillMode=none
+PrivateTmp=false
+
+[Install]
+WantedBy=multi-user.target
+Alias=lsws.service

@@ -1,0 +1,35 @@
+bt
+info frame
+info args
+info locals
+ignore-errors print *this
+up
+info frame
+info args
+info locals
+ignore-errors print *this
+up
+info frame
+info args
+info locals
+ignore-errors print *this
+up
+info frame
+info args
+info locals
+ignore-errors print *this
+up
+info frame
+info args
+info locals
+ignore-errors print *this
+up
+info frame
+info args
+info locals
+ignore-errors print *this
+
+
+
+
+
